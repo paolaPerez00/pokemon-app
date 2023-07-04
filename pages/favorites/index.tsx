@@ -1,5 +1,6 @@
 
 import { Layout } from "@/components/layouts"
+import FavoritePokemons from "@/components/ui/FavoritePokemons"
 import NoFavorites from "@/components/ui/NoFavorites"
 import { localFavorites } from "@/utils"
 import { NextPage } from "next"
@@ -12,11 +13,15 @@ const FavoritePage: NextPage = () => {
   useEffect(() => {
     setfavoritePokemons(localFavorites.pokemons)
   }, [])
-  
+
 
   return (
     <Layout title="Pokemons - favoritos">
-      <NoFavorites/>
+      {
+        favoritePokemons.length === 0
+          ? (<NoFavorites />)
+          : (<FavoritePokemons pokemons={favoritePokemons}/>)
+      }
     </Layout>
   )
 }
