@@ -1,9 +1,5 @@
 
-
-
 const toggleFavorite = (id: number) =>{
-
-    console.log('toogle favorite llamado')
 
     //Arreglo de numeros
     let favorites: number[] = JSON.parse(localStorage.getItem('favorites') || '[]')
@@ -17,6 +13,23 @@ const toggleFavorite = (id: number) =>{
     localStorage.setItem('favorites', JSON.stringify(favorites))
 }
 
+const existInFavorites = (id: number): boolean =>{
+
+    //Importante cuando se maneja localstorage
+    if(typeof window  === 'undefined') return false //Si esto se genera del lado del servidor retorna false
+
+    let favorites: number[] = JSON.parse(localStorage.getItem('favorites') || '[]')
+
+    return favorites.includes(id)
+}
+
+
+const pokemons = (): number[] =>{
+    return JSON.parse(localStorage.getItem('favorites') || '[]')
+}
+
 export default{
     toggleFavorite,
+    existInFavorites, 
+    pokemons
 }
