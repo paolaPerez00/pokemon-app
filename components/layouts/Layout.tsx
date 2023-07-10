@@ -7,7 +7,7 @@ type Props = {
     title?: string
 }
 
-const origin = (typeof window === 'undefined') ? '' : window.location 
+const origin = (typeof window === 'undefined') ? '' : window.location.origin
 
 export const Layout = ({ children, title }: Props) => {
     return (
@@ -20,7 +20,7 @@ export const Layout = ({ children, title }: Props) => {
 
                 <meta property="og:title" content={`Información sobre ${title}`} />
                 <meta property="og:description" content={`Esta es la página sobre ${title}`} />
-                <meta property="og:image" content="https://ahrefs.com/blog/wp-content/uploads/2019/12/fb-how-to-become-an-seo-expert.png" />
+                <meta property="og:image" content={`${origin}/img/banner.png`} />
             </Head>
 
             <Navbar></Navbar>
