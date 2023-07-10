@@ -19,9 +19,7 @@ export default function HomePage({ pokemons }: Props) {
 
   return (
     <Layout title='Pokemon Gina'>
-      <Button color="gradient">
-        Hello world
-      </Button>
+      
       <Grid.Container gap={2} justify='flex-start'>
         {
           pokemons.map((pokemon) =>
