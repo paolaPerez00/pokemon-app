@@ -13,11 +13,11 @@ const PokemonCard:FC<Props> = ({ pokemon }: Props) => {
   const router = useRouter()
 
   const onClick = () => {
-    router.push(`/pokemon/${pokemon.id}`)
+    router.push(`/name/${pokemon.name}`)
   }
 
   return (
-    <Grid xs={6} sm={3} md={2} xl={1} key={pokemon.id}>
+    <Grid xs={6} sm={3} md={2} xl={1} key={pokemon.name}>
       <Card
         hoverable 
         clickable
